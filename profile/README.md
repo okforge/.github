@@ -1,7 +1,7 @@
 # okforge
 
-**Scanned books in; a citation-backed, LLM-synthesized wiki out — all on
-your own hardware.**
+**Scanned documents in; a citation-backed, LLM-synthesized wiki out —
+all on your own hardware.**
 
 Most "chat with your documents" tools hand an LLM a pile of raw chunks
 at query time and hope. okforge instead **compiles** your sources ahead
@@ -42,9 +42,9 @@ stays *out of the weights*, in well-structured, grounded, traceable
 pages the model reads at inference. The large context windows of
 current open-source models are what make this practical: whole curated
 pages fit in context, so a 7–30B model answers from finished synthesis
-instead of reconstructing it. Updating the KB means adding a book, not
-retraining; switching models keeps the KB; and every answer traces to
-a page.
+instead of reconstructing it. Updating the KB means adding a document,
+not retraining; switching models keeps the KB; and every answer traces
+to a page.
 
 ## Take only what you need
 
@@ -67,9 +67,10 @@ Page Assist, Claude, or any MCP client) as an MCP server, alongside
 that client's own built-in RAG. The MCP tools include full-text search
 over the wiki (`grep_wiki` / `search`), so models locate-then-read
 curated, page-cited pages — no embedding step anywhere. And a KB is a
-subject collection, not a one-book wrapper: many books combine into
-one KB, concept and entity pages accrete sources as new material
-lands, and the web UI's MCP server searches across every KB it hosts.
+subject collection, not a wrapper around a single file: many documents
+combine into one KB, concept and entity pages accrete sources as new
+material lands, and the web UI's MCP server searches across every KB
+it hosts.
 
 ## Local-first, for real
 
@@ -99,5 +100,5 @@ the full point-and-click pipeline.
 
 The engine began as a hard fork of
 [VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB) and diverges
-deliberately — self-hosted operation, OKF conformance, and scanned-book
-workflows over SaaS integration. Apache-2.0 (engine) / MIT (webui).
+deliberately — self-hosted operation, OKF conformance, and
+scanned-document workflows over SaaS integration. Apache-2.0 (engine) / MIT (webui).
