@@ -33,6 +33,19 @@ scanned PDF ──▶ VLM OCR + photo extraction ──▶ (optional translation
 | [**okforge-vision-ocr**](https://github.com/okforge/okforge-vision-ocr) | Pre-conversion: one vision-LLM call per page produces a Markdown transcription **and** photo/figure crops **and** the page map the engine reads for real citations. Table mode, translation workflow. Any OpenAI-compatible VLM. `pip install okforge-vision-ocr` |
 | [**okforge-webui**](https://github.com/okforge/okforge-webui) | LAN web UI + job runner: drop a PDF in an inbox and drive it through probe → pilot → OCR → ingest → verify, with a serial job queue built for single-slot LLM hosts, an MCP endpoint, and one-button [Quartz](https://quartz.jzhao.xyz/) site publishing. |
 
+## Take only what you need
+
+The three repos are a pipeline, not a bundle — each layer is useful on
+its own:
+
+- **Just want PDFs as clean Markdown?** `pip install okforge-vision-ocr`
+  converts scanned pages to Markdown with extracted photos and a page
+  map — use it in front of any downstream tool, no engine required.
+- **Already have Markdown documents?** `pip install okforge` compiles
+  them straight into a citation-backed wiki — no OCR step, no web UI.
+- **Want the full point-and-click pipeline?** Add okforge-webui on top
+  for the inbox, job queue, wiki browser, and one-button publishing.
+
 ## Bring your own chat client
 
 okforge is not a chat app and ships no vector database — by design. It
