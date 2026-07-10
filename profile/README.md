@@ -33,6 +33,19 @@ scanned PDF ──▶ VLM OCR + photo extraction ──▶ (optional translation
 | [**okforge-vision-ocr**](https://github.com/okforge/okforge-vision-ocr) | Pre-conversion: one vision-LLM call per page produces a Markdown transcription **and** photo/figure crops **and** the page map the engine reads for real citations. Table mode, translation workflow. Any OpenAI-compatible VLM. `pip install okforge-vision-ocr` |
 | [**okforge-webui**](https://github.com/okforge/okforge-webui) | LAN web UI + job runner: drop a PDF in an inbox and drive it through probe → pilot → OCR → ingest → verify, with a serial job queue built for single-slot LLM hosts, an MCP endpoint, and one-button [Quartz](https://quartz.jzhao.xyz/) site publishing. |
 
+## Small models, big context — no fine-tuning
+
+Getting your domain into a local model used to mean fine-tuning or a
+LoRA: expensive, frozen at training time, tied to one model, and
+impossible to cite. A compiled KB is the alternative — the knowledge
+stays *out of the weights*, in well-structured, grounded, traceable
+pages the model reads at inference. The large context windows of
+current open-source models are what make this practical: whole curated
+pages fit in context, so a 7–30B model answers from finished synthesis
+instead of reconstructing it. Updating the KB means adding a book, not
+retraining; switching models keeps the KB; and every answer traces to
+a page.
+
 ## Take only what you need
 
 The three repos are a pipeline, not a bundle — each layer is useful on
