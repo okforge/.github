@@ -49,8 +49,8 @@ lands, and the web UI's MCP server searches across every KB it hosts.
 
 For many of the people this suite was built for, keeping data local is
 not a preference — it's a requirement. Ethical, legal, privacy, and
-proprietary constraints mean documents and business processes simply
-cannot be sent to a third-party service. So everything here is tuned
+proprietary constraints mean documents and business processes
+sometimes simply cannot go to a third-party service. So everything here is tuned
 for the case where the LLM is **your** machine, not a cloud API. Strong open multimodal models in the Qwen3.6-27B class
 finally make a fully local scan-to-wiki pipeline practical — provided
 the GPU has room for the model *and* generous context. The suite is
