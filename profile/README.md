@@ -33,6 +33,15 @@ scanned PDF ──▶ VLM OCR + photo extraction ──▶ (optional translation
 | [**okforge-vision-ocr**](https://github.com/okforge/okforge-vision-ocr) | Pre-conversion: one vision-LLM call per page produces a Markdown transcription **and** photo/figure crops **and** the page map the engine reads for real citations. Table mode, translation workflow. Any OpenAI-compatible VLM. `pip install okforge-vision-ocr` |
 | [**okforge-webui**](https://github.com/okforge/okforge-webui) | LAN web UI + job runner: drop a PDF in an inbox and drive it through probe → pilot → OCR → ingest → verify, with a serial job queue built for single-slot LLM hosts, an MCP endpoint, and one-button [Quartz](https://quartz.jzhao.xyz/) site publishing. |
 
+## Bring your own chat client
+
+okforge is not a chat app and ships no vector database — by design. It
+attaches to the client you already run (Open WebUI, llama.cpp's WebUI,
+Page Assist, Claude, or any MCP client) as an MCP server, alongside
+that client's own built-in RAG. The MCP tools include full-text search
+over the wiki (`grep_wiki` / `search`), so models locate-then-read
+curated, page-cited pages — no embedding step anywhere.
+
 ## Local-first, for real
 
 Everything is tuned for the case where the LLM is **your** machine, not
