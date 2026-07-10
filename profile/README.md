@@ -40,16 +40,24 @@ attaches to the client you already run (Open WebUI, llama.cpp's WebUI,
 Page Assist, Claude, or any MCP client) as an MCP server, alongside
 that client's own built-in RAG. The MCP tools include full-text search
 over the wiki (`grep_wiki` / `search`), so models locate-then-read
-curated, page-cited pages — no embedding step anywhere.
+curated, page-cited pages — no embedding step anywhere. And a KB is a
+subject collection, not a one-book wrapper: many books combine into
+one KB, concept and entity pages accrete sources as new material
+lands, and the web UI's MCP server searches across every KB it hosts.
 
 ## Local-first, for real
 
 Everything is tuned for the case where the LLM is **your** machine, not
-a cloud API: a strictly serial job queue that won't choke a single-slot
-llama.cpp host, measured guidance for thinking-model footguns, and no
-telemetry, accounts, or SaaS dependencies anywhere in the path. Any
-OpenAI-compatible endpoint works — local llama.cpp/vLLM, or hosted
-providers like OpenRouter through the same model string.
+a cloud API. Strong open multimodal models in the Qwen3.6-27B class
+finally make a fully local scan-to-wiki pipeline practical — provided
+the GPU has room for the model *and* generous context. The suite is
+developed and run daily on RTX 3090, RTX 5090, and RTX 6000 Pro
+Blackwell hosts, so a single 24 GB card is a lived configuration, not
+a hope. A strictly serial job queue won't choke a single-slot
+llama.cpp host, thinking-model footguns come with measured guidance,
+and there is no telemetry, account, or SaaS dependency anywhere in the
+path. Any OpenAI-compatible endpoint works — local llama.cpp/vLLM, or
+hosted providers like OpenRouter through the same model string.
 
 ## Start here
 
