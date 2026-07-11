@@ -86,7 +86,11 @@ Blackwell hosts, so a single 24 GB card is a lived configuration, not
 a hope. A strictly serial job queue won't choke a single-slot
 llama.cpp host, thinking-model footguns come with measured guidance,
 and there is no telemetry, account, or SaaS dependency anywhere in the
-path. Any OpenAI-compatible endpoint works — local llama.cpp/vLLM, or
+path. It scales up as well as down: more VRAM means the model host can
+serve multiple slots, and queries — read-only by design — parallelize
+across them today, so several clients can work the same KBs at once.
+Ingest is deliberately serial for now; parallel and multi-card ingest
+support is in active development. Any OpenAI-compatible endpoint works — local llama.cpp/vLLM, or
 hosted providers like OpenRouter through the same model string.
 
 ## Start here
