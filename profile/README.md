@@ -90,7 +90,13 @@ path. It scales up as well as down: more VRAM means the model host can
 serve multiple slots, and queries — read-only by design — parallelize
 across them today, so several clients can work the same KBs at once.
 Ingest is deliberately serial for now; parallel and multi-card ingest
-support is in active development. Any OpenAI-compatible endpoint works — local llama.cpp/vLLM, or
+support is in active development.
+
+And none of the pieces need to share a machine. okforge itself needs
+no GPU — it runs on any box that can reach an LLM endpoint over the
+network, and clients reach okforge the same way. A modest server
+between your desktop and the GPU machine can host the KBs, the web UI,
+and the MCP server for the whole LAN. Any OpenAI-compatible endpoint works — local llama.cpp/vLLM, or
 hosted providers like OpenRouter through the same model string.
 
 ## Start here
