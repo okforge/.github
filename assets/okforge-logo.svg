@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 400 400"
+     width="400" height="400"
+     role="img" aria-labelledby="title desc"
+     shape-rendering="geometricPrecision">
+  <title id="title">OK Forge logo</title>
+  <desc id="desc">A red connected-node network above a black anvil.</desc>
+
+
+  <!-- Connected-node network -->
+  <g id="network" fill="none" stroke="#b23030" stroke-width="5"
+     stroke-linecap="butt" stroke-linejoin="round">
+    <line x1="90"  y1="76"  x2="149" y2="93"/>
+    <line x1="90"  y1="76"  x2="100" y2="156"/>
+    <line x1="149" y1="93"  x2="100" y2="156"/>
+    <line x1="100" y1="156" x2="160" y2="193"/>
+    <line x1="149" y1="93"  x2="231" y2="34"/>
+    <line x1="149" y1="93"  x2="177" y2="148"/>
+    <line x1="149" y1="93"  x2="249" y2="129"/>
+    <line x1="231" y1="34"  x2="177" y2="148"/>
+    <line x1="231" y1="34"  x2="249" y2="129"/>
+    <line x1="177" y1="148" x2="197" y2="193"/>
+    <line x1="249" y1="129" x2="316" y2="72"/>
+    <line x1="249" y1="129" x2="339" y2="148"/>
+    <line x1="249" y1="129" x2="222" y2="193"/>
+    <line x1="339" y1="148" x2="262" y2="193"/>
+  </g>
+
+  <g id="nodes" fill="#b23030">
+    <circle cx="90"  cy="76"  r="14"/>
+    <circle cx="149" cy="93"  r="14"/>
+    <circle cx="231" cy="34"  r="14"/>
+    <circle cx="316" cy="72"  r="14"/>
+    <circle cx="100" cy="156" r="14"/>
+    <circle cx="177" cy="148" r="14"/>
+    <circle cx="249" cy="129" r="14"/>
+    <circle cx="339" cy="148" r="14"/>
+  </g>
+
+  <!-- Anvil -->
+  <g id="anvil" fill="#000000">
+    <path id="anvil-horn" d="
+      M37 217 H107 L116 241 V213 H135 V270
+      C100 268 72 256 53 241
+      C43 233 38 224 37 217 Z"/>
+
+    <path id="anvil-body" d="
+      M125 343 H166 L209 311 L251 343 H292
+      C274 332 260 317 254 303
+      C246 286 253 270 268 257
+      C286 240 313 230 341 225
+      C345 221 347 214 347 205
+      H145 V271
+      C158 275 166 286 168 298
+      C169 314 155 329 125 343 Z"/>
+
+    <path id="anvil-foot" d="
+      M171 348 V373
+      C185 367 197 364 209 364
+      C222 364 234 367 246 373
+      V348 L209 318 Z"/>
+
+    <rect id="left-base"  x="119" y="349" width="46" height="25"/>
+    <rect id="right-base" x="253" y="349" width="47" height="25"/>
+  </g>
+</svg>
