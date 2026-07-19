@@ -27,16 +27,6 @@ scanned PDF ──▶ VLM OCR + photo extraction ──▶ (optional translation
 
 ## See a finished wiki
 
-[**The Standard Guide to St. Augustine**](https://designcomputer.com/THE_STANDARD_GUIDE_ST_AUGUSTINE/)
-— a public-domain guidebook, scanned, OCR'd, and compiled into a
-browsable wiki by this pipeline: concept and entity pages, full-text
-search, a graph view, and `(p. N)` page citations throughout. For the
-many-documents case, see
-[**The Seminole Wars**](https://designcomputer.com/SeminoleWars/), a
-KB where several books combine into shared concept and entity pages.
-
-## See a finished wiki
-
 [**The Dade County Building Code of 1935**](https://okforge.github.io/dade-code-1935/)
 — a real working example from engineering practice. When supporting
 work on historic buildings, what matters is the code the structure was
