@@ -17,7 +17,9 @@ The wiki follows the [Open Knowledge Format (OKF)](https://github.com/GoogleClou
 
 ## The Pipeline
 
-<img src="../assets/pipeline.svg" width="800" alt="okforge pipeline diagram">
+<div align="center">
+  <img src="../assets/pipeline.svg" width="1000" alt="okforge pipeline diagram">
+</div>
 
 ### How it Works
 
