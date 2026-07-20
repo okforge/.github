@@ -38,14 +38,27 @@ been OCR'd and compiled into a browsable wiki: cross-document concept
 and entity pages, full-text search, a graph view, and `(p. N)` page
 citations throughout.
 
-## Repositories
+## The okforge Ecosystem
 
-| repo | what it does |
-|---|---|
-| [**okforge**](https://github.com/okforge/okforge) | The engine: compiles documents into an OKF-conformant, citation-backed wiki; `query`, `chat`, and an MCP server over any KB. `pip install okforge` |
-| [**okforge-vision-ocr**](https://github.com/okforge/okforge-vision-ocr) | Pre-conversion: one vision-LLM call per page produces a Markdown transcription **and** photo/figure crops **and** the page map the engine reads for real citations. Table mode, translation workflow. Any OpenAI-compatible VLM. `pip install okforge-vision-ocr` |
-| [**okforge-webui**](https://github.com/okforge/okforge-webui) | LAN web UI + job runner: drop a PDF in an inbox and drive it through probe → pilot → OCR → ingest → verify, with a serial job queue built for single-slot LLM hosts, an MCP endpoint, and one-button [Quartz](https://quartz.jzhao.xyz/) site publishing. |
+The system consists of two core tools and a reference interface to demonstrate how they work together.
 
+### Core Tools
+These are the primary libraries used to process documents and interact with your knowledge base.
+
+*   [**okforge-vision-ocr**](https://github.com/okforge/okforge-vision-ocr) $\rightarrow$ **The Digitizer**
+    The first step in the pipeline. It uses Vision AI to transcribe scans into clean text, crop out images and diagrams, and create the precise page maps required for real `(p. N)` citations. 
+    `pip install okforge-vision-ocr`
+
+*   [**okforge**](https://github.com/okforge/okforge) $\rightarrow$ **The Knowledge Engine**
+    The heart of the system. It compiles digitized text into a structured, interlinked wiki and provides the interfaces (`chat`, `query`, and MCP server) to let you talk to your data via local AI models.
+    `pip install okforge`
+
+### Reference Implementation
+*   [**okforge-webui**](https://github.com/okforge/okforge-webui) $\rightarrow$ **Local Dashboard (Example)**
+    This is a reference implementation demonstrating how the core tools can be combined into a usable application. It is designed for local, single-user use, allowing you to drop PDFs into an inbox and drive them through the pipeline via a browser interface. 
+
+    *Note: As this is a demo for local setups, it does not include multi-user support or authentication.*
+    
 ## Small models, big context — no fine-tuning
 
 Getting your domain into a local model used to mean fine-tuning or a
