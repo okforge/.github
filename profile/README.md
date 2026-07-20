@@ -17,79 +17,14 @@ The wiki follows the [Open Knowledge Format (OKF)](https://github.com/GoogleClou
 
 ## The Pipeline
 
-<svg viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
-  <!-- Definitions for arrows -->
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
-    </marker>
-  </defs>
-
-  <!-- Background/Container (Optional) -->
-  <rect width="900" height="220" fill="none" />
-
-  <!-- Node A: Scanned PDF -->
-  <rect x="20" y="80" width="120" height="50" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="2" />
-  <text x="80" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#991b1b" font-weight="bold">Scanned PDF</text>
-
-  <!-- Arrow A -> B -->
-  <line x1="140" y1="105" x2="170" y2="105" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-
-  <!-- Node B: VLM OCR -->
-  <rect x="180" y="80" width="180" height="50" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="2" />
-  <text x="270" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#166534">VLM OCR &amp; Photo Extraction</text>
-
-  <!-- Arrow B -> C -->
-  <line x1="360" y1="105" x2="390" y2="105" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-
-  <!-- Node C: Translation Decision (Diamond) -->
-  <path d="M 420 70 L 450 105 L 420 140 L 390 105 Z" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" />
-  <text x="420" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#92400e">Translate?</text>
-
-  <!-- Arrow C (No) -> E -->
-  <line x1="450" y1="105" x2="480" y2="105" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-  <text x="465" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#666">No</text>
-
-  <!-- Arrow C (Yes) -> D -->
-  <line x1="420" y1="70" x2="420" y2="50" stroke="#666" stroke-width="2" />
-  <line x1="420" y1="50" x2="480" y2="50" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-  <text x="435" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#666">Yes</text>
-
-  <!-- Node D: Translated Text -->
-  <rect x="490" y="30" width="120" height="40" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1" />
-  <text x="550" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#92400e">Translated Text</text>
-
-  <!-- Arrow D -> E -->
-  <line x1="550" y1="70" x2="550" y2="80" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-
-  <!-- Node E: Ingest (The Forge) -->
-  <rect x="490" y="80" width="100" height="50" rx="8" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2" />
-  <text x="540" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#075985" font-weight="bold">Ingest</text>
-
-  <!-- Arrow E -> F -->
-  <line x1="590" y1="105" x2="620" y2="105" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-
-  <!-- Node F: Wiki Result -->
-  <rect x="630" y="80" width="170" height="50" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="3" />
-  <text x="715" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#1e40af" font-weight="bold">Interlinked Wiki &amp; Citations</text>
-
-  <!-- Outbound Arrows from F -->
-  <line x1="750" y1="80" x2="750" y2="50" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-  <line x1="780" y1="105" x2="810" y2="105" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-  <line x1="750" y1="130" x2="750" y2="160" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-
-  <!-- Result Nodes -->
-  <text x="750" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4b5563">Browse / Query / Chat</text>
-  <text x="830" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4b5563">MCP AI Client</text>
-  <text x="750" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#4b5563">Static Site</text>
-
-</svg>
+<img src="pipeline.svg" width="800" alt="okforge pipeline diagram">
 
 ### How it Works
 
 1.  **Extraction:** okforge uses Vision-Language Models (VLM) to not only read the text (OCR) but also recognize and extract images, diagrams, and photos from your scans. If your documents are in another language, they can be translated during this stage.
 2.  **Structuring (The "Forge"):** Instead of just saving a long text file, okforge "forges" the data into an interlinked wiki. It identifies key concepts, creates summaries, and ensures every piece of information is tagged with its original page number.
 3.  **Interaction:** Once your knowledge base is built, you can use it however you like: browse it as a personal website, search it via command line, or connect it to a local AI model (via MCP) to chat with your data with high confidence.
+
 ## See a finished wiki
 
 [**The Dade County Building Code of 1935**](https://okforge.github.io/dade-code-1935/)
