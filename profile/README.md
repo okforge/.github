@@ -1,29 +1,43 @@
 # okforge
 
-**Scanned documents in; a citation-backed, LLM-synthesized wiki out —
-all on your own hardware.**
+**Turn your scanned documents into a private, verifiable knowledge base—all on your own hardware.**
 
-Most "chat with your documents" tools hand an LLM a pile of raw chunks
-at query time and hope. okforge instead **compiles** your sources ahead
-of time into an interlinked Markdown wiki — per-document summaries,
-cross-document concept and entity pages, extracted images — where every
-claim carries a real `(p. N)` citation back to the original scan. Small
-models running on your own llama.cpp/vLLM box answer from curated pages
-instead of reconstructing from chunks, and what they say is checkable.
+Open Knowledge Forge (okforge) is a local-first system designed to create a structured Knowledge Base (KB) from scanned documents and make that data accessible to a locally hosted Large Language Model (LLM) via the Model Context Protocol (MCP).
 
-The wiki is plain Markdown with typed frontmatter, following the
-[Open Knowledge Format (OKF)](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md):
-readable in Obsidian or any editor, queryable from a CLI, chat REPL, or
-any MCP client, and publishable as a static site. Portable — not locked
-to okforge itself.
+Most "chat with your documents" tools work by feeding an AI random fragments of text and hoping for the best. This often leads to hallucinations or answers that lack context. 
 
-## The pipeline
+**okforge** takes a different approach: it organizes your sources into a structured, interlinked digital wiki *before* you ever ask a question. It generates document summaries, maps out key concepts, and extracts images—transforming raw scans into a curated library where every claim is backed by a real page citation `(p. N)`.
 
-```
-scanned PDF ──▶ VLM OCR + photo extraction ──▶ (optional translation)
-           ──▶ ingest ──▶ interlinked wiki with page citations
-           ──▶ browse · query · chat · MCP · publish static site
-```
+**Why this matters:**
+*   **Trust through Verifiability:** You don't have to guess if the AI is right; you can see exactly which page of your original document the information came from.
+*   **Privacy & Performance:** Because your data is pre-organized, you can use smaller, private AI models on your own computer without sacrificing quality. Your data never leaves your machine.
+*   **True Ownership:** Your knowledge is saved as plain Markdown files (compatible with apps like Obsidian). You aren't locked into a proprietary system—you own your data forever.
+
+The wiki follows the [Open Knowledge Format (OKF)](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/SPEC.md), ensuring that your structured knowledge is portable, standardized, and readable by any modern text editor or MCP-compatible AI client.
+
+## The Pipeline
+
+```mermaid
+graph LR
+    A[Scanned PDF] --> B[VLM OCR & Image Extraction]
+    B --> C{Translation?}
+    C -- Yes --> D[Translated Text]
+    C -- No --> E[Ingest]
+    D --> E
+    E --> F[Interlinked Wiki with Citations]
+    F --> G[Browse / Query / Chat]
+    F --> H[MCP AI Client]
+    F --> I[Static Site]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style F fill:#bbf,stroke:#333,stroke-width:4px
+    style E fill:#dfd,stroke:#333,stroke-width:2px
+
+**What this means in plain English:**
+
+1.  **Extraction:** okforge uses Vision-Language Models (VLM) to not only read the text (OCR) but also recognize and extract images, diagrams, and photos from your scans. If your documents are in another language, they can be translated here.
+2.  **Structuring (The "Forge"):** Instead of just saving a long text file, okforge "forges" the data into an interlinked wiki. It identifies key concepts, creates summaries, and ensures every piece of information is tagged with its original page number.
+3.  **Interaction:** Once your knowledge base is built, you can use it however you like: browse it as a personal website, search it via command line, or connect it to a local AI model (via MCP) to chat with your data.
 
 ## See a finished wiki
 
