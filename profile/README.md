@@ -28,10 +28,6 @@ graph LR
     F --> G[Browse / Query / Chat]
     F --> H[MCP AI Client]
     F --> I[Static Site]
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style F fill:#bbf,stroke:#333,stroke-width:4px
-    style E fill:#dfd,stroke:#333,stroke-width:2px
 ```
 
 ### How it Works
