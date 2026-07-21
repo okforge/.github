@@ -63,11 +63,14 @@ The system consists of two core Python packages and an optional reference Web in
 > **Note:** The Web UI is intended for local, single-user deployments and does not currently provide authentication or multi-user access controls.
 
     
-## Data-Driven Intelligence, Not Model-Baked Knowledge
+## Knowledge in the Data, Not the Model Weights
 
-Adding domain knowledge via fine-tuning or LoRAs is expensive, static, and opaque. **okforge** avoids this by keeping knowledge *out of the weights* and in structured, traceable pages that the model reads at inference. 
+Fine-tuning can adapt a model’s behavior, but it is not an ideal way to maintain factual knowledge that changes over time. **okforge** instead keeps domain information in structured, source-cited pages that the model reads when answering a question.
 
-This approach is made possible by a new generation of highly capable small models. These models are not just larger in context window, but fundamentally "smarter"—they can reason over complex, unfamiliar data they weren't trained on with remarkable precision. Consequently, a 7–30B model can answer based on pre-synthesized curated pages rather than relying on flawed internal memory. This ensures that updating the KB is as simple as adding a document, switching models is seamless, and every response remains strictly verifiable.
+This approach allows a knowledge base to be updated without retraining a model and makes it possible to use the same content with different compatible models. Modern small and mid-sized models can work effectively with curated context, making local deployment practical for many document-analysis tasks.
+
+Because the supporting pages retain citations to the original documents, users can trace an answer’s sources and evaluate the model’s interpretation for themselves.
+
 
 ## Modular by Design
 
