@@ -106,7 +106,7 @@ Ready to build your own verifiable knowledge base?
 
 ### Project Heritage & Credits
 
-The `okforge` engine began as a hard fork of [VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB). It diverges deliberately to prioritize self-hosted operation, scanned-document workflows, and strict OKF conformance over SaaS integration. For those who prefer a managed service and for whom local hosting is not a primary requirement, VectifyAI’s offering is an excellent choice.
+The **okforge** engine began as a hard fork of [VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB). It diverges deliberately to prioritize self-hosted operation, scanned-document workflows, and strict OKF conformance over SaaS integration. For those who prefer a managed service and for whom local hosting is not a primary requirement, VectifyAI’s offering is an excellent choice.
 
 The system follows Google's **Open Knowledge Format (OKF)**—an open specification that standardizes [Andrej Karpathy's "LLM Wiki" concept](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), ensuring that structured knowledge remains portable and readable by any modern AI client.
 
