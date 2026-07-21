@@ -31,9 +31,9 @@ The wiki follows the [Open Knowledge Format (OKF)](https://github.com/GoogleClou
 
 [**The Dade County Building Code of 1935**](https://okforge.github.io/dade-code-1935/) is a real-world example produced by `okforge` and created by [SRI Consultants](https://sriconsultants.net/), a Southeast Florida engineering firm that sponsored the deployment of the system.
 
-While `okforge` is designed to make data accessible to an LLM via MCP, this browsable wiki allows you to inspect the structured Knowledge Base (KB) directly. It demonstrates what happens during the "Forge" stage: transforming raw scans into a verifiable digital asset.
+While okforge is designed to make data accessible to an LLM via MCP, this browsable wiki allows you to inspect the structured Knowledge Base (KB) directly. It demonstrates what happens during the "Forge" stage: transforming raw scans into a verifiable digital asset.
 
-For SRI Consultants, local-first ownership is critical; they use `okforge` to build KBs of proprietary processes and project information that must remain private and secure from frontier model providers like OpenAI or Anthropic. Because the **Dade County Building Code of 1935** is in the public domain, it serves as a perfect demonstration of the system's utility. In engineering practice—specifically when supporting work on historic buildings—the critical factor is the code the structure was originally permitted under. SRI uses this KB to reference the materials and methods used in historic Southeast Florida structures, featuring cross-document concept pages, full-text search, a graph view, and precise page number citations throughout.
+For SRI Consultants, local-first ownership is critical; they use okforge to build KBs of proprietary processes and project information that must remain private and secure from frontier model providers like OpenAI or Anthropic. Because the **Dade County Building Code of 1935** is in the public domain, it serves as a perfect demonstration of the system's utility. In engineering practice—specifically when supporting work on historic buildings—the critical factor is the code the structure was originally permitted under. SRI uses this KB to reference the materials and methods used in historic Southeast Florida structures, featuring cross-document concept pages, full-text search, a graph view, and precise page number citations throughout.
 
 ## The okforge Ecosystem
 
@@ -72,9 +72,9 @@ The three repositories are components of a pipeline, not a monolithic bundle—e
 
 ## Bring your own chat client
 
-`okforge` is not a chat app, and it ships without a vector database by design. Instead, it attaches to your preferred client (Open WebUI, llama.cpp, Page Assist, Claude, or any MCP-compatible host) as an **MCP server**.
+okforge is not a chat app, and it ships without a vector database by design. Instead, it attaches to your preferred client (Open WebUI, llama.cpp, Page Assist, Claude, or any MCP-compatible host) as an **MCP server**.
 
-This allows for a powerful **hybrid approach**: you can use your client's built-in Vector RAG for broad, semantic discovery while using `okforge` for precision and verification. By avoiding the embedding step for its own core logic, `okforge` uses a "locate-then-read" approach. The MCP tools provide full-text search over the wiki (`grep_wiki` / `search`), allowing the model to find and read curated, page-cited documents directly. 
+This allows for a powerful **hybrid approach**: you can use your client's built-in Vector RAG for broad, semantic discovery while using okforge for precision and verification. By avoiding the embedding step for its own core logic, okforge uses a "locate-then-read" approach. The MCP tools provide full-text search over the wiki (`grep_wiki` / `search`), allowing the model to find and read curated, page-cited documents directly. 
 
 Furthermore, a Knowledge Base in this system is a *subject collection*, not a wrapper around a single file. Many different documents can be combined into one KB; as new material lands, concept and entity pages accrete sources over time. The web UI's MCP server allows the model to search across every KB it hosts simultaneously.
 
@@ -91,7 +91,7 @@ This suite is developed and run daily on RTX 5090 and RTX 6000 series hosts; a s
 *   **Scaling:** More VRAM allows the host to serve multiple slots, and because queries are read-only, they parallelize across these slots so several clients can work the same KBs at once.
 
 ### Architectural Flexibility
-None of the components need to share a machine. `okforge` itself does not require a GPU; it only needs network access to an LLM endpoint. 
+None of the components need to share a machine. okforge itself does not require a GPU; it only needs network access to an LLM endpoint. 
 
 You can deploy a modest server between your desktop and your GPU machine to host the KBs, the web UI, and the MCP server for your entire LAN. Any OpenAI-compatible endpoint works—whether that is a local llama.cpp/vLLM instance or a hosted provider like OpenRouter.
 
