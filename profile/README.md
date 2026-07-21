@@ -4,16 +4,17 @@
 
 Open Knowledge Forge (okforge) is a local-first system designed to create a structured Knowledge Base (KB) from scanned documents and make that data accessible to a locally hosted Large Language Model (LLM) via the Model Context Protocol (MCP).
 
-Most ‘chat with your documents’ tools use a technique called RAG (Retrieval-Augmented Generation). Think of it like giving an AI a few random pages from a book instead of the whole chapter; because the AI is missing the full context, it often fills in the gaps with made-up information.
+Most “chat with your documents” tools use a technique called RAG, or Retrieval-Augmented Generation. Think of it like giving an AI a few pages selected from a book rather than the full chapter. Those pages may contain the most relevant passages, but they can still omit important context, relationships, and supporting details—making the AI more likely to produce incomplete or unsupported answers.
 
-**okforge** takes a different approach: it organizes your sources into a structured, interlinked digital wiki *before* you ever ask a question. It generates document summaries, maps out key concepts, and extracts images—transforming raw scans into a curated library where every claim is backed by a real page number citation.
+
+**okforge** takes a different approach: it organizes your sources into a structured, interlinked digital wiki *before* you ever ask a question. It generates document summaries, maps key concepts, and extracts images—transforming raw scans into a curated library with page-level citations that let you trace generated information back to the original sources.
 
 **Why this matters:**
-*   **Trust through Verifiability:** You don't have to guess if the AI is right; you can see exactly which page of your original document the information came from.
-*   **Privacy & Performance:** Because your data is pre-organized, you can use smaller, private AI models on your own computer without sacrificing quality. Your data never leaves your machine.
-*   **True Ownership:** Your knowledge is saved as plain Markdown files (compatible with apps like Obsidian). You aren't locked into a proprietary system—you own your data forever.
+*   **Traceable Answers:** Page-level citations let you inspect the original source and verify the AI’s interpretation for yourself.
+*   **Privacy & Performance:** Because your data is organized in advance, capable smaller models can work with it efficiently on your own hardware. When okforge is configured with local inference, your documents and generated knowledge remain on systems you control.
+*   **True Ownership:** Your knowledge is saved as plain Markdown files (compatible with apps like Obsidian). You aren't locked into a proprietary system—you own your data.
 
-The wiki follows the [Open Knowledge Format (OKF)](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md), ensuring that your structured knowledge is portable, standardized, and readable by any modern text editor or MCP-compatible AI client.
+The wiki follows the current draft of the Open Knowledge Format [Open Knowledge Format (OKF)](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md), keeping your structured knowledge portable and readable as standard Markdown. Through okforge’s MCP server, compatible AI clients can search and retrieve that knowledge.
 
 ## The Pipeline
 
