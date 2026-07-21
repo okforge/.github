@@ -89,17 +89,22 @@ This supports a hybrid workflow: a client may use its own vector search for broa
 
 An okforge knowledge base represents a subject collection rather than a single source document. Multiple documents can contribute to the same concept and entity pages, allowing the knowledge base to incorporate additional sources over time. The Web UI’s MCP server can also search across all knowledge bases it hosts.
 
-## Local-first, for real
+## Local-First by Design
 
-For many users, keeping data local is not a preference—it is a requirement. Ethical, legal, and proprietary constraints mean that sensitive business processes simply cannot be sent to a third-party cloud API. Everything in this suite is tuned for the case where the LLM resides on **your** hardware.
+For organizations with privacy, contractual, regulatory, or data-sovereignty requirements, keeping document processing and inference under their control may be essential. okforge supports a fully self-hosted workflow in which source documents, generated knowledge bases, and model inference remain on infrastructure you manage.
 
-### Hardware Reality
-The shift toward strong open multimodal models (such as the Qwen3.6-27B class) finally makes a fully local scan-to-wiki pipeline practical—provided the GPU has sufficient VRAM for both the model and a generous context window. 
+Remote OpenAI-compatible inference endpoints are optional and should be used only when their data-handling practices meet your organization’s requirements.
 
-This suite is developed and run daily on RTX 3090, RTX 5090, and RTX 6000 Pro Blackwell hosts; a single 24 GB card is a proven, real-world baseline, not a theoretical hope. To ensure stability on consumer hardware:
-*   **Serial Ingest:** The job queue is strictly serial to avoid choking single-slot llama.cpp hosts.
-*   **Zero Dependencies:** There is no telemetry, no account system, and no SaaS dependency in the path.
-*   **Scaling:** More VRAM allows the host to serve multiple slots, and because queries are read-only, they parallelize across these slots so several clients can work the same KBs at once.
+### Tested Hardware
+
+Recent open multimodal models, including models in the Qwen3.6-27B class, make a fully local scan-to-wiki pipeline practical when sufficient memory is available for the model and working context.
+
+okforge is developed and used daily on systems equipped with RTX 3090, RTX 5090, and RTX 6000 Pro Blackwell GPUs. In our tested quantized configurations, a single 24 GB GPU provides a practical starting point for serial document ingestion and interactive knowledge-base access. Actual memory requirements and performance vary with the selected model, quantization, context length, and inference-server settings.
+
+### Resource Management and Scaling
+* **Serial ingestion:** Ingestion jobs are processed one at a time by default, reducing memory contention on single-GPU llama.cpp hosts.
+* **No required cloud services:** A fully self-hosted deployment requires no telemetry, user account, or SaaS service in the processing path.
+* **Scalable inference:** Additional VRAM and compute can support larger models, longer contexts, or multiple inference slots. Depending on the inference server and its configuration, independent read-only queries can be handled concurrently across those slots.
 
 ### Architectural Flexibility
 okforge separates the management of knowledge from the compute required to process it. While a GPU is essential for the LLM to operate, it does not have to be local to the okforge installation. This flexibility allows you to deploy a modest server as a central knowledge hub for your entire LAN, offloading the inference to any OpenAI-compatible endpoint—whether that is a dedicated local GPU server or a hosted provider like OpenRouter.
