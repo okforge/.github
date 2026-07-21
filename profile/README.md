@@ -56,18 +56,11 @@ These are primary Python libraries used to process documents and interact with y
 
     *Note: As this is a demo for local setups, it does not include multi-user support or authentication.*
     
-## Small models, big context — no fine-tuning
+## Data-Driven Intelligence, Not Model-Baked Knowledge
 
-Getting your domain into a local model used to mean fine-tuning or a
-LoRA: expensive, frozen at training time, tied to one model, and
-impossible to cite. A compiled KB is the alternative — the knowledge
-stays *out of the weights*, in well-structured, grounded, traceable
-pages the model reads at inference. The large context windows of
-current open-source models are what make this practical: whole curated
-pages fit in context, so a 7–30B model answers from finished synthesis
-instead of reconstructing it. Updating the KB means adding a document,
-not retraining; switching models keeps the KB; and every answer traces
-to a page.
+Adding domain knowledge via fine-tuning or LoRAs is expensive, static, and opaque. **okforge** avoids this by keeping knowledge *out of the weights* and in structured, traceable pages that the model reads at inference. 
+
+This approach is made possible by a new generation of highly capable small models. These models are not just larger in context window, but fundamentally "smarter"—they can reason over complex, unfamiliar data they weren't trained on with remarkable precision. Consequently, a 7–30B model can answer based on pre-synthesized curated pages rather than relying on flawed internal memory. This ensures that updating the KB is as simple as adding a document, switching models is seamless, and every response remains strictly verifiable.
 
 ## Take only what you need
 
