@@ -58,12 +58,14 @@ The system consists of two core Python packages and an optional reference Web in
 
 ### Reference implementation
 
-* [**okforge-webui**](https://github.com/okforge/okforge-webui) — **Local Web interface**
+- [**okforge-webui**](https://github.com/okforge/okforge-webui) — **Web interface and reference implementation**
 
-  Demonstrates how the core packages can be combined into a browser-based workflow with a PDF inbox, processing queue, knowledge-base browser, and publishing tools.
+  A working reference implementation that combines `okforge-vision-ocr` and `okforge` in a browser-based interface. It supports PDF processing, Markdown generation, optional knowledge-base ingestion, knowledge-base management, and publishing.
+
+  The WebUI demonstrates one way to build applications with the okforge libraries; it is not required to use either core package.
 
 > [!WARNING]
-> The Web UI is intended for local, single-user deployments and does not currently provide authentication or multi-user access controls. Do not expose it directly to an untrusted network.
+> The WebUI is intended for local, single-user deployments and does not currently provide authentication or multi-user access controls. Do not expose it directly to an untrusted network.
 
 ## Knowledge in the data, not the model weights
 
