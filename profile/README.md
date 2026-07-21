@@ -34,23 +34,24 @@ The wiki follows the [Open Knowledge Format (OKF)](https://github.com/GoogleClou
 While `okforge` is designed to make data accessible to an LLM via MCP, this browsable wiki allows you to inspect the structured Knowledge Base (KB) directly. It demonstrates what happens during the "Forge" stage: transforming raw scans into a verifiable digital asset.
 
 For SRI Consultants, local-first ownership is critical; they use `okforge` to build KBs of proprietary processes and project information that must remain private and secure from frontier model providers like OpenAI or Anthropic. Because the **Dade County Building Code of 1935** is in the public domain, it serves as a perfect demonstration of the system's utility. In engineering practice—specifically when supporting work on historic buildings—the critical factor is the code the structure was originally permitted under. SRI uses this KB to reference the materials and methods used in historic Southeast Florida structures, featuring cross-document concept pages, full-text search, a graph view, and precise page number citations throughout.
+
 ## The okforge Ecosystem
 
 The system consists of two core tools and a reference interface to demonstrate how they work together.
 
 ### Core Tools
-These are the primary libraries used to process documents and interact with your knowledge base.
+These are primary Python libraries used to process documents and interact with your knowledge base. Both can be run directly from the command line or imported as modules into your own applications and scripts.
 
-*   [**okforge-vision-ocr**](https://github.com/okforge/okforge-vision-ocr) $\rightarrow$ **The Digitizer**
-    The first step in the pipeline. It uses Vision AI to transcribe scans into clean text, crop out images and diagrams, and create the precise page maps required for real `(p. N)` citations. 
+*   [**okforge-vision-ocr**](https://github.com/okforge/okforge-vision-ocr) $\rightarrow$ **The Digitizer**  
+    The first step in the pipeline. It uses Vision AI to transcribe scans into clean text, crop out images and diagrams, and create the precise page maps required for real page number citations. 
     `pip install okforge-vision-ocr`
 
-*   [**okforge**](https://github.com/okforge/okforge) $\rightarrow$ **The Knowledge Engine**
+*   [**okforge**](https://github.com/okforge/okforge) $\rightarrow$ **The Knowledge Engine**  
     The heart of the system. It compiles digitized text into a structured, interlinked wiki and provides the interfaces (`chat`, `query`, and MCP server) to let you talk to your data via local AI models.
     `pip install okforge`
 
 ### Reference Implementation
-*   [**okforge-webui**](https://github.com/okforge/okforge-webui) $\rightarrow$ **Local Dashboard (Example)**
+*   [**okforge-webui**](https://github.com/okforge/okforge-webui) $\rightarrow$ **Local Dashboard (Example)**  
     This is a reference implementation demonstrating how the core tools can be combined into a usable application. It is designed for local, single-user use, allowing you to drop PDFs into an inbox and drive them through the pipeline via a browser interface. 
 
     *Note: As this is a demo for local setups, it does not include multi-user support or authentication.*
