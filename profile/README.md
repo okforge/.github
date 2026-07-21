@@ -6,7 +6,7 @@ Open Knowledge Forge (okforge) is a local-first system designed to create a stru
 
 Most "chat with your documents" tools work by feeding an AI random fragments of text and hoping for the best. This often leads to hallucinations or answers that lack context. 
 
-**okforge** takes a different approach: it organizes your sources into a structured, interlinked digital wiki *before* you ever ask a question. It generates document summaries, maps out key concepts, and extracts images—transforming raw scans into a curated library where every claim is backed by a real page citation `(p. N)`.
+**okforge** takes a different approach: it organizes your sources into a structured, interlinked digital wiki *before* you ever ask a question. It generates document summaries, maps out key concepts, and extracts images—transforming raw scans into a curated library where every claim is backed by a real page number citation.
 
 **Why this matters:**
 *   **Trust through Verifiability:** You don't have to guess if the AI is right; you can see exactly which page of your original document the information came from.
@@ -29,15 +29,13 @@ The wiki follows the [Open Knowledge Format (OKF)](https://github.com/GoogleClou
 
 ## See a finished wiki
 
-[**The Dade County Building Code of 1935**](https://okforge.github.io/dade-code-1935/)
-— a real working example from engineering practice. When supporting
-work on historic buildings, what matters is the code the structure was
-originally permitted under — and those old editions exist only as
-scans. Here the 1935 Miami-Dade building code (a public record) has
-been OCR'd and compiled into a browsable wiki: cross-document concept
-and entity pages, full-text search, a graph view, and `(p. N)` page
-citations throughout.
+## See a finished Knowledge Base
 
+[**The Dade County Building Code of 1935**](https://okforge.github.io/dade-code-1935/) is a real-world example produced by `okforge` and created by [SRI Consultants](https://sriconsultants.net/), a Southeast Florida engineering firm that sponsored the deployment of the system.
+
+While `okforge` is designed to make data accessible to an LLM via MCP, this browsable wiki allows you to inspect the structured Knowledge Base (KB) directly. It demonstrates what happens during the "Forge" stage: transforming raw scans into a verifiable digital asset.
+
+For SRI Consultants, local-first ownership is critical; they use `okforge` to build KBs of proprietary processes and project information that must remain private and secure from frontier model providers like OpenAI or Anthropic. Because the **Dade County Building Code of 1935** is in the public domain, it serves as a perfect demonstration of the system's utility. In engineering practice—specifically when supporting work on historic buildings—the critical factor is the code the structure was originally permitted under. SRI uses this KB to reference the materials and methods used in historic Southeast Florida structures, featuring cross-document concept pages, full-text search, a graph view, and precise page number citations throughout.
 ## The okforge Ecosystem
 
 The system consists of two core tools and a reference interface to demonstrate how they work together.
