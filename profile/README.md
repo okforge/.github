@@ -62,58 +62,38 @@ Adding domain knowledge via fine-tuning or LoRAs is expensive, static, and opaqu
 
 This approach is made possible by a new generation of highly capable small models. These models are not just larger in context window, but fundamentally "smarter"—they can reason over complex, unfamiliar data they weren't trained on with remarkable precision. Consequently, a 7–30B model can answer based on pre-synthesized curated pages rather than relying on flawed internal memory. This ensures that updating the KB is as simple as adding a document, switching models is seamless, and every response remains strictly verifiable.
 
-## Take only what you need
+## Modular by Design
 
-The three repos are a pipeline, not a bundle — each layer is useful on
-its own:
+The three repositories are components of a pipeline, not a monolithic bundle—each layer provides standalone value:
 
-- **Just want PDFs as clean Markdown?** `pip install okforge-vision-ocr`
-  converts scanned pages to Markdown with extracted photos and a page
-  map — use it in front of any downstream tool, no engine required.
-- **Already have Markdown documents?** `pip install okforge` compiles
-  them straight into a citation-backed wiki — no OCR step, no web UI.
-- **Want the full point-and-click pipeline?** Add okforge-webui on top
-  for the inbox, job queue, wiki browser, and one-button publishing.
+*   **Just want PDFs as clean Markdown?** Use [`okforge-vision-ocr`](https://github.com/okforge/okforge-vision-ocr). It converts scanned pages to Markdown with extracted photos and page maps. Because it produces standardized Markdown, its output can be used directly in any other downstream tool or ingested into traditional RAG systems.
+*   **Already have Markdown documents?** Use [`okforge`](https://github.com/okforge/okforge). It compiles existing text directly into a citation-backed wiki—no OCR step or web UI necessary.
+*   **Want the full point-and-click pipeline?** Deploy [`okforge-webui`](https://github.com/okforge/okforge-webui) on top for an integrated inbox, job queue, wiki browser, and one-button publishing.
 
 ## Bring your own chat client
 
-okforge is not a chat app and ships no vector database — by design. It
-attaches to the client you already run (Open WebUI, llama.cpp's WebUI,
-Page Assist, Claude, or any MCP client) as an MCP server, alongside
-that client's own built-in RAG. The MCP tools include full-text search
-over the wiki (`grep_wiki` / `search`), so models locate-then-read
-curated, page-cited pages — no embedding step anywhere. And a KB is a
-subject collection, not a wrapper around a single file: many documents
-combine into one KB, concept and entity pages accrete sources as new
-material lands, and the web UI's MCP server searches across every KB
-it hosts.
+`okforge` is not a chat app, and it ships without a vector database by design. Instead, it attaches to your preferred client (Open WebUI, llama.cpp, Page Assist, Claude, or any MCP-compatible host) as an **MCP server**.
+
+This allows for a powerful **hybrid approach**: you can use your client's built-in Vector RAG for broad, semantic discovery while using `okforge` for precision and verification. By avoiding the embedding step for its own core logic, `okforge` uses a "locate-then-read" approach. The MCP tools provide full-text search over the wiki (`grep_wiki` / `search`), allowing the model to find and read curated, page-cited documents directly. 
+
+Furthermore, a Knowledge Base in this system is a *subject collection*, not a wrapper around a single file. Many different documents can be combined into one KB; as new material lands, concept and entity pages accrete sources over time. The web UI's MCP server allows the model to search across every KB it hosts simultaneously.
 
 ## Local-first, for real
 
-For many of the people this suite was built for, keeping data local is
-not a preference — it's a requirement. Ethical, legal, privacy, and
-proprietary constraints mean documents and business processes
-sometimes simply cannot go to a third-party service. So everything here is tuned
-for the case where the LLM is **your** machine, not a cloud API. Strong open multimodal models in the Qwen3.6-27B class
-finally make a fully local scan-to-wiki pipeline practical — provided
-the GPU has room for the model *and* generous context. The suite is
-developed and run daily on RTX 3090, RTX 5090, and RTX 6000 Pro
-Blackwell hosts, so a single 24 GB card is a lived configuration, not
-a hope. A strictly serial job queue won't choke a single-slot
-llama.cpp host, thinking-model footguns come with measured guidance,
-and there is no telemetry, account, or SaaS dependency anywhere in the
-path. It scales up as well as down: more VRAM means the model host can
-serve multiple slots, and queries — read-only by design — parallelize
-across them today, so several clients can work the same KBs at once.
-Ingest is deliberately serial for now; parallel and multi-card ingest
-support is in active development.
+For many users, keeping data local is not a preference—it is a requirement. Ethical, legal, and proprietary constraints mean that sensitive business processes simply cannot be sent to a third-party cloud API. Everything in this suite is tuned for the case where the LLM resides on **your** hardware.
 
-And none of the pieces need to share a machine. okforge itself needs
-no GPU — it runs on any box that can reach an LLM endpoint over the
-network, and clients reach okforge the same way. A modest server
-between your desktop and the GPU machine can host the KBs, the web UI,
-and the MCP server for the whole LAN. Any OpenAI-compatible endpoint works — local llama.cpp/vLLM, or
-hosted providers like OpenRouter through the same model string.
+### Hardware Reality
+The shift toward strong open multimodal models (such as the Qwen 2.5/3 class) finally makes a fully local scan-to-wiki pipeline practical—provided the GPU has sufficient VRAM for both the model and a generous context window. 
+
+This suite is developed and run daily on RTX 5090 and RTX 6000 series hosts; a single 24 GB card is a lived configuration, not a theoretical hope. To ensure stability on consumer hardware:
+*   **Serial Ingest:** The job queue is strictly serial to avoid choking single-slot llama.cpp hosts.
+*   **Zero Dependencies:** There is no telemetry, no account system, and no SaaS dependency in the path.
+*   **Scaling:** More VRAM allows the host to serve multiple slots, and because queries are read-only, they parallelize across these slots so several clients can work the same KBs at once.
+
+### Architectural Flexibility
+None of the components need to share a machine. `okforge` itself does not require a GPU; it only needs network access to an LLM endpoint. 
+
+You can deploy a modest server between your desktop and your GPU machine to host the KBs, the web UI, and the MCP server for your entire LAN. Any OpenAI-compatible endpoint works—whether that is a local llama.cpp/vLLM instance or a hosted provider like OpenRouter.
 
 ## Start here
 
