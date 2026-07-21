@@ -71,14 +71,15 @@ This approach allows a knowledge base to be updated without retraining a model a
 
 Because the supporting pages retain citations to the original documents, users can trace an answer’s sources and evaluate the model’s interpretation for themselves.
 
+## Choose the Components You Need
 
-## Modular by Design
+Each component can be used independently or as part of the complete pipeline:
 
-The three repositories are components of a pipeline, not a monolithic bundle—each layer provides standalone value:
+* **Convert scanned PDFs to Markdown:** Use [`okforge-vision-ocr`](https://github.com/okforge/okforge-vision-ocr) to transcribe pages, extract visual content, and preserve source-page mappings. Its Markdown output can also be used with other document-processing or RAG systems.
 
-*   **Just want PDFs as clean Markdown?** Use [`okforge-vision-ocr`](https://github.com/okforge/okforge-vision-ocr). It converts scanned pages to Markdown with extracted photos and page maps. Because it produces standardized Markdown, its output can be used directly in any other downstream tool or ingested into traditional RAG systems.
-*   **Already have Markdown documents?** Use [`okforge`](https://github.com/okforge/okforge). It compiles existing text directly into a citation-backed wiki—no OCR step or web UI necessary.
-*   **Want the full point-and-click pipeline?** Deploy [`okforge-webui`](https://github.com/okforge/okforge-webui) on top for an integrated inbox, job queue, wiki browser, and one-button publishing.
+* **Turn existing Markdown into a knowledge base:** Use [`okforge`](https://github.com/okforge/okforge) to organize source material into an interlinked, page-cited wiki. No OCR stage or Web interface is required.
+
+* **Run the complete browser-based workflow:** Deploy [`okforge-webui`](https://github.com/okforge/okforge-webui) for an integrated PDF inbox, processing queue, knowledge-base browser, and publishing workflow.
 
 ## Bring your own chat client
 
