@@ -97,14 +97,19 @@ You can deploy a modest server between your desktop and your GPU machine to host
 
 ## Start here
 
-New to the suite? Read the engine's
-[GETTING_STARTED](https://github.com/okforge/okforge/blob/main/GETTING_STARTED.md),
-or clone [okforge-webui](https://github.com/okforge/okforge-webui) for
-the full point-and-click pipeline.
+Ready to build your own verifiable knowledge base? 
+
+*   **For developers:** Read the engine's [GETTING_STARTED](https://github.com/okforge/okforge/blob/main/GETTING_STARTED.md) guide.
+*   **For a turnkey experience:** Clone [okforge-webui](https://github.com/okforge/okforge-webui) to launch the full point-and-click pipeline.
 
 ---
 
-The engine began as a hard fork of
-[VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB) and diverges
-deliberately — self-hosted operation, OKF conformance, and
-scanned-document workflows over SaaS integration. Apache-2.0 (engine) / MIT (webui).
+### Project Heritage & Credits
+
+The `okforge` engine began as a hard fork of [VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB). It diverges deliberately to prioritize self-hosted operation, scanned-document workflows, and strict OKF conformance over SaaS integration. For those who prefer a managed service and for whom local hosting is not a primary requirement, VectifyAI’s offering is an excellent choice.
+
+The system follows Google's **Open Knowledge Format (OKF)**—an open specification that standardizes [Andrej Karpathy's "LLM Wiki" concept](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), ensuring that structured knowledge remains portable and readable by any modern AI client.
+
+Special thanks to [SRI Consultants](https://sriconsultants.net/) for sponsoring the development of this project, contributing critical architectural ideas, and serving as its first real-world user.
+
+**Licensing:** Apache-2.0 (engine) / MIT (vision-ocr, webui).
