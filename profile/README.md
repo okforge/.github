@@ -4,7 +4,7 @@
 
 Open Knowledge Forge (okforge) is a local-first system designed to create a structured Knowledge Base (KB) from scanned documents and make that data accessible to a locally hosted Large Language Model (LLM) via the Model Context Protocol (MCP).
 
-Most "chat with your documents" tools work by feeding an AI random fragments of text and hoping for the best. This often leads to hallucinations or answers that lack context. 
+Most ‘chat with your documents’ tools use a technique called RAG (Retrieval-Augmented Generation). Think of it like giving an AI a few random pages from a book instead of the whole chapter; because the AI is missing the full context, it often fills in the gaps with made-up information.
 
 **okforge** takes a different approach: it organizes your sources into a structured, interlinked digital wiki *before* you ever ask a question. It generates document summaries, maps out key concepts, and extracts images—transforming raw scans into a curated library where every claim is backed by a real page number citation.
 
