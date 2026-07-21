@@ -81,13 +81,13 @@ Each component can be used independently or as part of the complete pipeline:
 
 * **Run the complete browser-based workflow:** Deploy [`okforge-webui`](https://github.com/okforge/okforge-webui) for an integrated PDF inbox, processing queue, knowledge-base browser, and publishing workflow.
 
-## Bring your own chat client
+## Bring Your Own Chat Client
 
-okforge is not a chat app, and it ships without a vector database by design. Instead, it attaches to your preferred client (Open WebUI, llama.cpp, Page Assist, Hermes Agent, or any MCP-compatible host) as an **MCP server**.
+okforge is not a chat application and does not require a vector database. Instead, it runs as an MCP server that connects your knowledge base to compatible clients such as Open WebUI, llama.cpp, Page Assist, or Hermes Agent.
 
-This allows for a powerful **hybrid approach**: you can use your client's built-in Vector RAG for broad, semantic discovery while using okforge for precision and verification. By avoiding the embedding step for its own core logic, okforge uses a "locate-then-read" approach. The MCP tools provide full-text search over the wiki (`grep_wiki` / `search`), allowing the model to find and read curated, page-cited documents directly. 
+This supports a hybrid workflow: a client may use its own vector search for broad semantic discovery, while okforge’s MCP tools provide full-text search and direct access to curated, page-cited knowledge pages. The model can first locate relevant pages and then read their complete contents rather than relying only on retrieved text fragments.
 
-Furthermore, a Knowledge Base in this system is a *subject collection*, not a wrapper around a single file. Many different documents can be combined into one KB; as new material lands, concept and entity pages accrete sources over time. The web UI's MCP server allows the model to search across every KB it hosts simultaneously.
+An okforge knowledge base represents a subject collection rather than a single source document. Multiple documents can contribute to the same concept and entity pages, allowing the knowledge base to incorporate additional sources over time. The Web UI’s MCP server can also search across all knowledge bases it hosts.
 
 ## Local-first, for real
 
