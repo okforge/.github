@@ -107,24 +107,29 @@ okforge is developed and used daily on systems equipped with RTX 3090, RTX 5090,
 * **Scalable inference:** Additional VRAM and compute can support larger models, longer contexts, or multiple inference slots. Depending on the inference server and its configuration, independent read-only queries can be handled concurrently across those slots.
 
 ### Architectural Flexibility
-okforge separates the management of knowledge from the compute required to process it. While a GPU is essential for the LLM to operate, it does not have to be local to the okforge installation. This flexibility allows you to deploy a modest server as a central knowledge hub for your entire LAN, offloading the inference to any OpenAI-compatible endpoint—whether that is a dedicated local GPU server or a hosted provider like OpenRouter.
 
-## Start here
+okforge separates knowledge-base management from the compute used for document processing and inference. The model server does not need to run on the same machine as okforge.
 
-Ready to build your own verifiable knowledge base? 
+A modest server can act as a central knowledge hub for a local network while sending inference requests to any compatible OpenAI-style endpoint. That endpoint might be a GPU server elsewhere on the same network, a CPU or hybrid inference host, or an optional hosted provider.
 
-*   **For developers:** Read the engine's [GETTING_STARTED](https://github.com/okforge/okforge/blob/main/GETTING_STARTED.md) guide.
-*   **For a turnkey experience:** Clone [okforge-webui](https://github.com/okforge/okforge-webui) to launch the full point-and-click pipeline.
-*   **Prefer to be walked through it?** Hand [this install prompt](https://github.com/okforge/okforge-webui/blob/main/docs/INSTALL_PROMPT.md) to a coding agent and it will set the suite up with you interactively.
+Local endpoints keep processing within infrastructure you control. When using a hosted provider, document content and prompts may leave your systems and should be evaluated against the provider’s privacy and data-retention policies.
+
+## Start Here
+
+Choose the path that best matches how you want to use okforge:
+
+* **Install the core engine:** Follow the [`GETTING_STARTED`](https://github.com/okforge/okforge/blob/main/GETTING_STARTED.md) guide to create and access knowledge bases from the command line.
+* **Run the complete Web interface:** Clone [`okforge-webui`](https://github.com/okforge/okforge-webui) for the integrated document-ingestion, knowledge-base management, and publishing workflow.
+* **Use a coding agent:** Give the [`INSTALL_PROMPT`](https://github.com/okforge/okforge-webui/blob/main/docs/INSTALL_PROMPT.md) to a compatible coding agent for guided, interactive installation and configuration.
 
 ---
 
-### Project Heritage & Credits
+### Project Heritage and Credits
 
-The **okforge** engine began as a hard fork of [VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB). It diverges deliberately to prioritize self-hosted operation, scanned-document workflows, and strict OKF conformance over SaaS integration. For those who prefer a managed service and for whom local hosting is not a primary requirement, VectifyAI’s offering is an excellent choice.
+The **okforge** engine began as a hard fork of [VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB). It has since diverged to focus on self-hosted operation, scanned-document workflows, MCP access, and conformance with the current draft of [Open Knowledge Format (OKF) v0.1](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md).
 
-The system follows Google's **Open Knowledge Format (OKF)**—an open specification that standardizes [Andrej Karpathy's "LLM Wiki" concept](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f), ensuring that structured knowledge remains portable and readable by any modern AI client.
+Both projects build on [Andrej Karpathy’s “LLM Wiki” concept](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): transforming source material into a persistent, interlinked knowledge base rather than reconstructing that knowledge for every query. okforge stores the resulting knowledge as portable Markdown with YAML frontmatter.
 
-Special thanks to [SRI Consultants](https://sriconsultants.net/) for sponsoring the development of this project, contributing critical architectural ideas, and serving as its first real-world user.
+Special thanks to [SRI Consultants](https://sriconsultants.net/) for sponsoring the project’s development, contributing architectural ideas, and serving as its first production user.
 
-**Licensing:** Apache-2.0 (engine) / MIT (vision-ocr, webui).
+**Licensing:** Apache-2.0 for the okforge engine; MIT for okforge-vision-ocr and okforge-webui.
