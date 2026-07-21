@@ -91,9 +91,7 @@ This suite is developed and run daily on RTX 3090, RTX 5090, and RTX 6000 Pro Bl
 *   **Scaling:** More VRAM allows the host to serve multiple slots, and because queries are read-only, they parallelize across these slots so several clients can work the same KBs at once.
 
 ### Architectural Flexibility
-None of the components need to share a machine. okforge itself does not require a GPU; it only needs network access to an LLM endpoint. 
-
-You can deploy a modest server between your desktop and your GPU machine to host the KBs, the web UI, and the MCP server for your entire LAN. Any OpenAI-compatible endpoint works—whether that is a local llama.cpp/vLLM instance or a hosted provider like OpenRouter.
+okforge separates the management of knowledge from the compute required to process it. While a GPU is essential for the LLM to operate, it does not have to be local to the okforge installation. This flexibility allows you to deploy a modest server as a central knowledge hub for your entire LAN, offloading the inference to any OpenAI-compatible endpoint—whether that is a dedicated local GPU server or a hosted provider like OpenRouter.
 
 ## Start here
 
