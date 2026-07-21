@@ -38,24 +38,30 @@ For work involving historic buildings, engineers may need to consult the code un
 
 ## The okforge Ecosystem
 
-The system consists of two core tools and a reference interface to demonstrate how they work together.
+The system consists of two core Python packages and an optional reference Web interface. Each component can be used independently or as part of the complete document-to-knowledge pipeline.
 
 ### Core Tools
-These are primary Python libraries used to process documents and interact with your knowledge base. Both can be run directly from the command line or imported as modules into your own applications and scripts.
 
-*   [**okforge-vision-ocr**](https://github.com/okforge/okforge-vision-ocr) $\rightarrow$ **The Digitizer**  
-    The first step in the pipeline. It uses Vision AI to transcribe scans into clean text, crop out images and diagrams, and create the precise page maps required for real page number citations. 
-    `pip install okforge-vision-ocr`
+* [**okforge-vision-ocr**](https://github.com/okforge/okforge-vision-ocr) — **Document extraction**
 
-*   [**okforge**](https://github.com/okforge/okforge) $\rightarrow$ **The Knowledge Engine**  
-    The heart of the system. It compiles digitized text into a structured, interlinked wiki and provides the interfaces (`chat`, `query`, and MCP server) to let you talk to your data via local AI models.
-    `pip install okforge`
+  Transcribes scanned pages into Markdown using vision-language models, extracts images and diagrams, and records the source-page mappings needed for page-level citations.
+
+  `pip install okforge-vision-ocr`
+
+* [**okforge**](https://github.com/okforge/okforge) — **Knowledge-base generation and access**
+
+  Compiles extracted or existing Markdown into a structured, interlinked wiki. It also provides command-line tools and an MCP server for searching, reading, and querying the resulting knowledge base.
+
+  `pip install okforge`
 
 ### Reference Implementation
-*   [**okforge-webui**](https://github.com/okforge/okforge-webui) $\rightarrow$ **Local Dashboard (Example)**  
-    This is a reference implementation demonstrating how the core tools can be combined into a usable application. It is designed for local, single-user use, allowing you to drop PDFs into an inbox and drive them through the pipeline via a browser interface. 
 
-    *Note: As this is a demo for local setups, it does not include multi-user support or authentication.*
+* [**okforge-webui**](https://github.com/okforge/okforge-webui) — **Local Web interface**
+
+  Demonstrates how the core packages can be combined into a browser-based workflow with a PDF inbox, processing queue, knowledge-base browser, and publishing tools.
+
+> **Note:** The Web UI is intended for local, single-user deployments and does not currently provide authentication or multi-user access controls.
+
     
 ## Data-Driven Intelligence, Not Model-Baked Knowledge
 
