@@ -27,7 +27,7 @@ The wiki follows the current draft of the Open Knowledge Format [Open Knowledge 
 2. **Structuring—the “Forge”:** Rather than producing a single long text file, okforge synthesizes the extracted material into an interlinked wiki. It identifies key concepts, creates summaries, and adds page-level citations that connect generated content to the source documents.
 3. **Interaction:** Once the knowledge base is built, you can browse it as a website, search it from the command line, or connect it to an AI client through MCP. The model can locate relevant knowledge pages, read their curated content, and trace supporting information back to the original source pages.
 
-## See a Finished Knowledge Base
+## See a finished knowledge base
 
 [**The Dade County Building Code of 1935**](https://okforge.github.io/dade-code-1935/) is a public knowledge base produced with **okforge** by [SRI Consultants](https://sriconsultants.net/), a Southeast Florida engineering firm that sponsored the system’s development.
 
