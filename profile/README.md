@@ -85,7 +85,7 @@ For many users, keeping data local is not a preference—it is a requirement. Et
 ### Hardware Reality
 The shift toward strong open multimodal models (such as the Qwen 2.5/3 class) finally makes a fully local scan-to-wiki pipeline practical—provided the GPU has sufficient VRAM for both the model and a generous context window. 
 
-This suite is developed and run daily on RTX 5090 and RTX 6000 series hosts; a single 24 GB card is a lived configuration, not a theoretical hope. To ensure stability on consumer hardware:
+This suite is developed and run daily on RTX 3090, RTX 5090 and RTX 6000 series hosts; a single 24 GB card is a lived configuration, not a theoretical hope. To ensure stability on consumer hardware:
 *   **Serial Ingest:** The job queue is strictly serial to avoid choking single-slot llama.cpp hosts.
 *   **Zero Dependencies:** There is no telemetry, no account system, and no SaaS dependency in the path.
 *   **Scaling:** More VRAM allows the host to serve multiple slots, and because queries are read-only, they parallelize across these slots so several clients can work the same KBs at once.
