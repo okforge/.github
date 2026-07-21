@@ -83,9 +83,9 @@ Furthermore, a Knowledge Base in this system is a *subject collection*, not a wr
 For many users, keeping data local is not a preference—it is a requirement. Ethical, legal, and proprietary constraints mean that sensitive business processes simply cannot be sent to a third-party cloud API. Everything in this suite is tuned for the case where the LLM resides on **your** hardware.
 
 ### Hardware Reality
-The shift toward strong open multimodal models (such as the Qwen 2.5/3 class) finally makes a fully local scan-to-wiki pipeline practical—provided the GPU has sufficient VRAM for both the model and a generous context window. 
+The shift toward strong open multimodal models (such as the Qwen3.6-27B class) finally makes a fully local scan-to-wiki pipeline practical—provided the GPU has sufficient VRAM for both the model and a generous context window. 
 
-This suite is developed and run daily on RTX 3090, RTX 5090 and RTX 6000 series hosts; a single 24 GB card is a lived configuration, not a theoretical hope. To ensure stability on consumer hardware:
+This suite is developed and run daily on RTX 3090, RTX 5090, and RTX 6000 Pro Blackwell hosts; a single 24 GB card is a lived configuration, not a theoretical hope. To ensure stability on consumer hardware:
 *   **Serial Ingest:** The job queue is strictly serial to avoid choking single-slot llama.cpp hosts.
 *   **Zero Dependencies:** There is no telemetry, no account system, and no SaaS dependency in the path.
 *   **Scaling:** More VRAM allows the host to serve multiple slots, and because queries are read-only, they parallelize across these slots so several clients can work the same KBs at once.
@@ -101,6 +101,7 @@ Ready to build your own verifiable knowledge base?
 
 *   **For developers:** Read the engine's [GETTING_STARTED](https://github.com/okforge/okforge/blob/main/GETTING_STARTED.md) guide.
 *   **For a turnkey experience:** Clone [okforge-webui](https://github.com/okforge/okforge-webui) to launch the full point-and-click pipeline.
+*   **Prefer to be walked through it?** Hand [this install prompt](https://github.com/okforge/okforge-webui/blob/main/docs/INSTALL_PROMPT.md) to a coding agent and it will set the suite up with you interactively, Quartz included.
 
 ---
 
