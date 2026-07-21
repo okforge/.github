@@ -22,19 +22,19 @@ The wiki follows the current draft of the Open Knowledge Format [Open Knowledge 
   <img src="../assets/pipeline.svg" width="1000" alt="okforge pipeline diagram">
 </div>
 
-### How it Works
+### How It Works
+1. **Extraction:** okforge uses vision-language models (VLMs) to transcribe scanned text, identify visual content, and preserve the relationship between each output and its original page. Images, diagrams, and photographs can be cropped and saved alongside the extracted text. Documents can also be translated during this stage.
+2. **Structuring—the “Forge”:** Rather than producing a single long text file, okforge synthesizes the extracted material into an interlinked wiki. It identifies key concepts, creates summaries, and adds page-level citations that connect generated content to the source documents.
+3. **Interaction:** Once the knowledge base is built, you can browse it as a website, search it from the command line, or connect it to an AI client through MCP. The model can locate relevant knowledge pages, read their curated content, and trace supporting information back to the original source pages.
 
-1.  **Extraction:** okforge uses Vision-Language Models (VLM) to not only read the text (OCR) but also recognize and extract images, diagrams, and photos from your scans. If your documents are in another language, they can be translated during this stage.
-2.  **Structuring (The "Forge"):** Instead of just saving a long text file, okforge 'forges'—or synthesizes—the data into an interlinked wiki. It identifies key concepts, creates summaries, and ensures every piece of information is tagged with its original page number.
-3.  **Interaction:** Once your knowledge base is built, you can use it however you like: browse it as a personal website, search it via command line, or connect it to a local AI model (via MCP) to chat with your data with high confidence.
+## See a Finished Knowledge Base
 
-## See a finished Knowledge Base
+[**The Dade County Building Code of 1935**](https://okforge.github.io/dade-code-1935/) is a public knowledge base produced with **okforge** by [SRI Consultants](https://sriconsultants.net/), a Southeast Florida engineering firm that sponsored the system’s development.
 
-[**The Dade County Building Code of 1935**](https://okforge.github.io/dade-code-1935/) is a real-world example produced by **okforge** and created by [SRI Consultants](https://sriconsultants.net/), a Southeast Florida engineering firm that sponsored the deployment of the system.
+The site demonstrates the output of the Forge stage: scanned documents transformed into an interlinked wiki with concept pages, full-text search, a graph view, extracted source material, and page-level citations.
 
-While okforge is designed to make data accessible to an LLM via MCP, this browsable wiki allows you to inspect the structured Knowledge Base (KB) directly. It demonstrates what happens during the "Forge" stage: transforming raw scans into a verifiable digital asset.
+For work involving historic buildings, engineers may need to consult the code under which a structure was originally permitted. SRI uses this knowledge base to research the materials and construction methods documented for historic Southeast Florida structures. Because the source document is publicly available, it also provides an accessible example of the same local-first workflow SRI uses for private processes and project information.
 
-For SRI Consultants, local-first ownership is critical; they use okforge to build KBs of proprietary processes and project information that must remain private and secure from frontier model providers like OpenAI or Anthropic. Because the **Dade County Building Code of 1935** is in the public domain, it serves as a perfect demonstration of the system's utility. In engineering practice—specifically when supporting work on historic buildings—the critical factor is the code the structure was originally permitted under. SRI uses this KB to reference the materials and methods used in historic Southeast Florida structures, featuring cross-document concept pages, full-text search, a graph view, and precise page number citations throughout.
 
 ## The okforge Ecosystem
 
