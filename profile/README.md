@@ -24,7 +24,7 @@ The wiki follows the [Open Knowledge Format (OKF)](https://github.com/GoogleClou
 ### How it Works
 
 1.  **Extraction:** okforge uses Vision-Language Models (VLM) to not only read the text (OCR) but also recognize and extract images, diagrams, and photos from your scans. If your documents are in another language, they can be translated during this stage.
-2.  **Structuring (The "Forge"):** Instead of just saving a long text file, okforge "forges" the data into an interlinked wiki. It identifies key concepts, creates summaries, and ensures every piece of information is tagged with its original page number.
+2.  **Structuring (The "Forge"):** Instead of just saving a long text file, okforge 'forges'—or synthesizes—the data into an interlinked wiki. It identifies key concepts, creates summaries, and ensures every piece of information is tagged with its original page number.
 3.  **Interaction:** Once your knowledge base is built, you can use it however you like: browse it as a personal website, search it via command line, or connect it to a local AI model (via MCP) to chat with your data with high confidence.
 
 ## See a finished Knowledge Base
