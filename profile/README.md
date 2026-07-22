@@ -6,6 +6,8 @@ Open Knowledge Forge (**okforge**) is a local-first system that transforms scann
 
 Most “chat with your documents” tools use a technique called RAG, or Retrieval-Augmented Generation. Think of it like giving an AI a few pages selected from a book rather than the full chapter. Those pages may contain the most relevant passages, but they can still omit important context, relationships, and supporting details—making the AI more likely to produce incomplete or unsupported answers.
 
+A capable language model can create summaries, wiki pages, or even a small knowledge base directly from documents and a well-designed prompt. That approach can work well for a limited, one-time task. However, a prompt alone does not provide a repeatable ingestion pipeline, preserve page-level source mappings, manage extracted visual content, consistently organize many documents, or maintain an evolving knowledge base over time.
+
 **okforge** takes a different approach: it organizes your sources into a structured, interlinked digital wiki *before* you ever ask a question. It generates document summaries, maps key concepts, and extracts images—transforming raw scans into a curated library with page-level citations that let you trace generated information back to the original sources.
 
 **Why this matters:**
