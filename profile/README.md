@@ -139,7 +139,7 @@ Choose the path that best matches how you want to use okforge:
 
 ### Project heritage and credits
 
-The **okforge** engine began as a hard fork of [VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB). It has since diverged to focus on self-hosted operation, scanned-document workflows, MCP access, and conformance with the current draft of [Open Knowledge Format (OKF) v0.1](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md).
+The **okforge** engine began as a hard fork of [VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB). It has since diverged to focus on self-hosted operation, scanned-document workflows, MCP access, and conformance with the current draft of [Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md).
 
 The architecture also draws on [Andrej Karpathy’s “LLM Wiki” concept](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f): transforming source material into a persistent, interlinked knowledge base rather than reconstructing that knowledge for every query. okforge stores the resulting knowledge as portable Markdown with YAML frontmatter.
 
