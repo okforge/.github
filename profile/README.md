@@ -16,7 +16,7 @@ A capable language model can create summaries, wiki pages, or even a small knowl
 * **Privacy and performance:** Because your data is organized in advance, capable smaller models can work with it efficiently on your own hardware. When okforge is configured with local inference, your documents and generated knowledge remain on systems you control.
 * **True ownership:** Your knowledge is stored as plain Markdown files compatible with applications such as Obsidian. You are not locked into a proprietary storage format or hosted platform.
 
-The wiki follows the current draft of the [Open Knowledge Format (OKF)](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md), keeping your structured knowledge portable and readable as standard Markdown. Through okforge’s MCP server, compatible AI clients can search and retrieve that knowledge.
+The wiki follows the current draft of the [Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md), keeping your structured knowledge portable and readable as standard Markdown. Through okforge’s MCP server, compatible AI clients can search and retrieve that knowledge.
 
 ## The pipeline
 
